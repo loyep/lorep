@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Entities\Option;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +14,10 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Entities\User::class, function (Faker $faker) {
-
-    $name = $faker->name;
-    $password =  Hash::make('123456');
+$factory->define(Option::class, function (Faker $faker) {
 
     return [
-        'name' => $name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password,
-        'remember_token' => str_random(10),
+        'option_name' => $faker->unique()->word,
+        'option_value' => $faker->text,
     ];
 });
