@@ -20,14 +20,6 @@ class BaseCriteria implements CriteriaInterface
     protected $where;
 
     /**
-     * BaseCriteria constructor.
-     */
-    public function __construct()
-    {
-        $this->where = array();
-    }
-
-    /**
      * Get where filter.
      *
      * @return array
