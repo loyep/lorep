@@ -24,7 +24,7 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after login.
+     * Where to redirect users after registration.
      *
      * @return string
      */
@@ -66,10 +66,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'nickname' => strtolower($data['name']),
+            'display_name' => $data['name'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $metas = $user->meta()->createMany([
+            ['meta_key' => 'description', 'meta_value' => ''],
+            ['meta_key' => 'rich_editing', 'meta_value' => 'true'],
+            ['meta_key' => 'comment_shortcuts', 'meta_value' => 'false'],
+            ['meta_key' => 'use_ssl', 'meta_value' => 'false'],
+            ['meta_key' => 'show_admin_bar_front', 'meta_value' => 'true'],
+            ['meta_key' => 'locale', 'meta_value' => ''],
+        ]);
+        return $user;
     }
 }
