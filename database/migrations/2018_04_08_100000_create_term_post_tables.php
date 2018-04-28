@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class CreateTermPostTable.
+ * Class CreateTermPostTables.
  */
-class CreateTermPostTable extends Migration
+class CreateTermPostTables extends Migration
 {
     /**
      * Run the migrations.
