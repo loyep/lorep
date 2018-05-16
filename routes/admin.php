@@ -12,7 +12,7 @@
 */
 
 
-Route::prefix('admin')->group(function (){
+Route::prefix('dashboard')->group(function (){
 
     Route::get('/', 'HomeController@dashboard')->name('dashboard');
 

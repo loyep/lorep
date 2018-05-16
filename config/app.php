@@ -164,6 +164,7 @@ return [
          * Application Extension Service Providers...
          */
         App\Providers\RepositoryServiceProvider::class,
+        App\Providers\LorepServiceProvider::class,
     ],
 
     /*
