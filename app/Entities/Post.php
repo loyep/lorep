@@ -63,7 +63,7 @@ class Post extends Model implements Transformable
             'term_posts', 'post_id', 'term_id')->where('type', 'tag');
     }
 
-    public function categories ()
+    public function categories()
     {
         return $this->belongsToMany(Category::class,
             'term_posts', 'post_id', 'term_id')->where('type', 'category');

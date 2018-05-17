@@ -32,7 +32,7 @@ class TermMeta extends Model implements Transformable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function term ()
+    public function term()
     {
         return $this->belongsTo(Tag::class, 'term_id');
     }

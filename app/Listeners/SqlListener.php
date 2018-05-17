@@ -5,7 +5,7 @@ namespace App\Listeners;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\Log;
 
-class QueryListener
+class SqlListener
 {
     /**
      * Create the event listener.
@@ -27,9 +27,8 @@ class QueryListener
     {
         //
         $sql = str_replace("?", "'%s'", $event->sql);
-
         $log = vsprintf($sql, $event->bindings);
-
+        $log = '['. date('Y-m-d H:i:s') . '] '. $log . "\r\n";
         Log::debug($log);
     }
 }
