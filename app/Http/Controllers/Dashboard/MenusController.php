@@ -46,27 +46,15 @@ class MenusController extends Controller
      */
     public function index()
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $menus = $this->repository->all();
-
-        if ( request()->wantsJson() ) {
-
-            return response()->json([
-                'data' => $menus,
-            ]);
-        }
-
-        return view('menus.index', compact('menus'));
+        return view('dashboard.menus.index', compact('menus'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  MenuCreateRequest $request
-     *
      * @return \Illuminate\Http\Response
-     *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function store(MenuCreateRequest $request)
     {
