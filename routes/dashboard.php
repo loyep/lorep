@@ -17,5 +17,4 @@ Route::prefix('dashboard')->group(function (){
     Route::get('/', 'DashboardController@index')->name('dashboard');
 
     Route::get('menus', 'MenusController@index')->name('menus');
-//    Route::get('permissions', 'Dashboard\PermissionsController@index');
 });
