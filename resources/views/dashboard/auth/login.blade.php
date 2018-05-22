@@ -50,7 +50,7 @@
         Breakpoints();
     </script>
 </head>
-<body class="animsition page-login-v2 layout-full page-dark">
+<body class="animsition page-login-v2 layout-full page-dark" style="background-image: url(/assets/dashboard/assets/examples/images/login.jpg)">
 <!-- Page -->
 <div class="page" data-animsition-in="fade-in" data-animsition-out="fade-out">
     <div class="page-content">

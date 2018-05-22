@@ -50,7 +50,7 @@
         Breakpoints();
     </script>
 </head>
-<body class="animsition page-login-v2 layout-full page-dark">
+<body class="animsition page-login-v2 layout-full page-dark" style="background-image: url(/assets/dashboard/assets/examples/images/login.jpg)">
 <!-- Page -->
 <div class="page" data-animsition-in="fade-in" data-animsition-out="fade-out">
     <div class="page-content">
@@ -74,7 +74,7 @@
                      data-plugin="formMaterial">
                     <label class="form-control-label" for="email">Name</label>
                     <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" id="email"
-                           name="email" value="{{ old('name', '') }}">
+                           name="email" value="{{ old('name') }}">
                     @if ($errors->has('name'))
                         <label for="email" class="invalid-feedback">{{ $errors->first('name') }}</label>
                     @endif
@@ -83,7 +83,7 @@
                      data-plugin="formMaterial">
                     <label class="form-control-label" for="email">E-Mail Address</label>
                     <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="email"
-                           name="email" value="{{ old('email', '') }}">
+                           name="email" value="{{ old('email') }}">
                     @if ($errors->has('email'))
                         <label for="email" class="invalid-feedback">{{ $errors->first('email') }}</label>
                     @endif
