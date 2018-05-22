@@ -1,88 +1,167 @@
-@extends('dashboard.auth.layouts.app')
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="bootstrap material admin template">
+    <meta name="author" content="">
 
-@section('title', 'Login')
+    <title>Login | {{ config('app.name') }}</title>
 
-@section('content')
+    <link rel="apple-touch-icon" href="/assets/dashboard/assets/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/assets/dashboard/assets/images/favicon.ico">
 
-    <div class="login-wrapper ">
-        <div class="bg-pic">
-            <img src="/assets/dashboard/img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg"
-                 alt="" class="lazy">
-            <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
-                {{--<div class="col-sm-3 col-md-2 no-padding">--}}
-                <img class="m-t-5" data-src="/assets/dashboard/img/demo/pages_icon.png" height="60"
-                     src="/assets/dashboard/img/demo/pages_icon.png" width="60">
-                {{--</div>--}}
-                <h2 class="bold text-white text-uppercase">
-                    {{ 'Maxsey' }}
-                </h2>
-                <p class="text-white">Copyright © 2018 <a href="https://maxsey.com" class="text-white">Lorep</a>. All rights reserved.</p>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/dashboard/global/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/dashboard/global/css/bootstrap-extend.min.css">
+    <link rel="stylesheet" href="/assets/dashboard/assets/css/site.min.css">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="/assets/dashboard/global/vendor/animsition/animsition.css">
+    <link rel="stylesheet" href="/assets/dashboard/global/vendor/asscrollable/asScrollable.css">
+    <link rel="stylesheet" href="/assets/dashboard/global/vendor/switchery/switchery.css">
+    <link rel="stylesheet" href="/assets/dashboard/global/vendor/intro-js/introjs.css">
+    <link rel="stylesheet" href="/assets/dashboard/global/vendor/slidepanel/slidePanel.css">
+    <link rel="stylesheet" href="/assets/dashboard/global/vendor/flag-icon-css/flag-icon.css">
+    <link rel="stylesheet" href="/assets/dashboard/global/vendor/waves/waves.css">
+
+    <!-- Page -->
+    <link rel="stylesheet" href="/assets/dashboard/assets/examples/css/pages/login-v2.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="/assets/dashboard/global/fonts/material-design/material-design.min.css">
+    {{--<link rel="stylesheet" href="/assets/dashboard/global/fonts/brand-icons/brand-icons.min.css">--}}
+    <link rel="stylesheet" href="/assets/dashboard/global/fonts/font-awesome/font-awesome.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+
+    <!--[if lt IE 9]>
+    <script src="/assets/dashboard/global/vendor/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 10]>
+    <script src="/assets/dashboard/global/vendor/media-match/media.match.min.js"></script>
+    <script src="/assets/dashboard/global/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Scripts -->
+    <script src="/assets/dashboard/global/vendor/breakpoints/breakpoints.js"></script>
+    <script>
+        Breakpoints();
+    </script>
+</head>
+<body class="animsition page-login-v2 layout-full page-dark">
+<!-- Page -->
+<div class="page" data-animsition-in="fade-in" data-animsition-out="fade-out">
+    <div class="page-content">
+        <div class="page-brand-info">
+            <div class="brand">
+                <img class="brand-img" src="/assets/dashboard/assets/images/logo@2x.png" alt="...">
+                <h2 class="brand-text font-size-40">Lorep</h2>
             </div>
+            <p class="font-size-20">Lorep</p>
         </div>
-        <div class="login-container bg-white">
-            <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-                <img src="/assets/dashboard/img/logo.png" alt="logo" data-src="/assets/dashboard/img/logo.png"
-                     data-src-retina="/assets/dashboard/img/logo_2x.png" width="78" height="22">
-                <p class="p-t-35">Sign In</p>
-                <form id="form-login" class="p-t-15" role="form" method="post">
-                    @csrf
-                    <div class="form-group form-group-default{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <label>Email</label>
-                        <div class="controls">
-                            <input type="email" name="email" placeholder="Email" class="form-control" value="{{ old('email') }}" required>
-                        </div>
-                        @if ($errors->has('email'))
-                            <label id="email-error" class="error" for="email">{{ $errors->first('email') }}</label>
-                        @endif
-                    </div>
-                    <div class="form-group form-group-default{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <label>Password</label>
-                        <div class="controls">
-                            <input type="password" class="form-control" name="password" placeholder="Password" required>
-                        </div>
-                        @if ($errors->has('password'))
-                            <label id="password-error" class="error" for="password">{{ $errors->first('password') }}</label>
-                        @endif
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 no-padding sm-p-l-10">
-                            <div class="checkbox check-primary">
-                                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <label for="remember">{{ __('Remember Me') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6 d-flex align-items-center justify-content-end">
-                            <a href="{{ route('password.request') }}" class="text-info small">Forgot Password ?</a>
-                        </div>
-                    </div>
-                    <!-- END Form Control-->
-                    <button class="btn btn-primary  m-t-10" type="submit">{{ __('Sign In') }}</button>
-                    <div class="row">
-                        <button class="btn m-t-10 m-r-10"><i class="fa fa-github"></i></button>
-                        <button class="btn m-t-10"><i class="fa fa-google-plus"></i></button>
-                    </div>
-                </form>
-                <!--END Login Form-->
-                <div class="pull-bottom sm-pull-bottom">
-                    <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
-                        <div class="col-sm-3 col-md-2 no-padding">
-                            <img alt="" class="m-t-5" data-src="/assets/dashboard/img/demo/pages_icon.png"
-                                 data-src-retina="/assets/dashboard/img/demo/pages_icon_2x.png" height="60"
-                                 src="/assets/dashboard/img/demo/pages_icon.png" width="60">
-                        </div>
-                        <div class="col-sm-9 no-padding m-t-10">
-                            <p>
-                                <small>
-                                    Create a account. If you have a github account, log into it for this
-                                    process. Sign in with <a href="#" class="text-info">Github</a> or <a href="#"
-                                                                                                         class="text-info">Google</a>.
-                                </small>
-                            </p>
-                        </div>
-                    </div>
+
+        <div class="page-login-main">
+            <div class="brand hidden-md-up">
+                <img class="brand-img" src="/assets/dashboard/assets/images/logo-colored@2x.png" alt="...">
+                <h3 class="brand-text font-size-40">Lorep</h3>
+            </div>
+            <h3 class="font-size-24">Sign In</h3>
+            <form method="post" autocomplete="off" action="{{ route('login') }}">
+                @csrf
+                <div class="form-group form-material{{ $errors->has('email') ? ' has-danger' : '' }}"
+                     data-plugin="formMaterial">
+                    <label class="form-control-label" for="email">Email</label>
+                    <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="email"
+                           name="email" value="{{ old('email', '') }}">
+                    @if ($errors->has('email'))
+                        <label for="email" class="invalid-feedback">{{ $errors->first('email') }}</label>
+                    @endif
                 </div>
-            </div>
+                <div class="form-group form-material{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                     data-plugin="formMaterial">
+                    <label class="form-control-label" for="password">Password</label>
+                    <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                           id="password" name="password" value="{{ old('password', '') }}">
+                    @if ($errors->has('password'))
+                        <label for="password" class="invalid-feedback">{{ $errors->first('password') }}</label>
+                    @endif
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
+                        <input type="checkbox" id="remember" name="checkbox" {{ old('remember') ? 'checked' : '' }}>
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a class="float-right" href="{{ route('password.request') }}">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </form>
+
+            <p>No account? <a href="{{ route('register') }}">Sign Up</a></p>
+
+            <footer class="page-copyright">
+                <p>Copyright © 2018 <a href="https://maxsey.com">Lorep</a>.</p>
+            </footer>
         </div>
-        <!-- END Login Right Container-->
+
     </div>
-@endsection
+</div>
+<!-- End Page -->
+
+<!-- Core  -->
+<script src="/assets/dashboard/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
+<script src="/assets/dashboard/global/vendor/jquery/jquery.js"></script>
+<script src="/assets/dashboard/global/vendor/popper-js/umd/popper.min.js"></script>
+<script src="/assets/dashboard/global/vendor/bootstrap/bootstrap.js"></script>
+<script src="/assets/dashboard/global/vendor/animsition/animsition.js"></script>
+<script src="/assets/dashboard/global/vendor/mousewheel/jquery.mousewheel.js"></script>
+<script src="/assets/dashboard/global/vendor/asscrollbar/jquery-asScrollbar.js"></script>
+<script src="/assets/dashboard/global/vendor/asscrollable/jquery-asScrollable.js"></script>
+<script src="/assets/dashboard/global/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
+<script src="/assets/dashboard/global/vendor/waves/waves.js"></script>
+
+<!-- Plugins -->
+<script src="/assets/dashboard/global/vendor/switchery/switchery.js"></script>
+<script src="/assets/dashboard/global/vendor/intro-js/intro.js"></script>
+<script src="/assets/dashboard/global/vendor/screenfull/screenfull.js"></script>
+<script src="/assets/dashboard/global/vendor/slidepanel/jquery-slidePanel.js"></script>
+<script src="/assets/dashboard/global/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+<!-- Scripts -->
+<script src="/assets/dashboard/global/js/Component.js"></script>
+<script src="/assets/dashboard/global/js/Plugin.js"></script>
+<script src="/assets/dashboard/global/js/Base.js"></script>
+<script src="/assets/dashboard/global/js/Config.js"></script>
+
+<script src="/assets/dashboard/assets/js/Section/Menubar.js"></script>
+<script src="/assets/dashboard/assets/js/Section/GridMenu.js"></script>
+<script src="/assets/dashboard/assets/js/Section/Sidebar.js"></script>
+<script src="/assets/dashboard/assets/js/Section/PageAside.js"></script>
+<script src="/assets/dashboard/assets/js/Plugin/menu.js"></script>
+
+<script src="/assets/dashboard/global/js/config/colors.js"></script>
+<script src="/assets/dashboard/assets/js/config/tour.js"></script>
+<script>Config.set('assets', '/assets/dashboard/assets');</script>
+
+<!-- Page -->
+<script src="/assets/dashboard/assets/js/Site.js"></script>
+<script src="/assets/dashboard/global/js/Plugin/asscrollable.js"></script>
+<script src="/assets/dashboard/global/js/Plugin/slidepanel.js"></script>
+<script src="/assets/dashboard/global/js/Plugin/switchery.js"></script>
+<script src="/assets/dashboard/global/js/Plugin/jquery-placeholder.js"></script>
+<script src="/assets/dashboard/global/js/Plugin/material.js"></script>
+
+<script>
+    (function (document, window, $) {
+        'use strict';
+
+        var Site = window.Site;
+        $(document).ready(function () {
+            Site.run();
+        });
+    })(document, window, jQuery);
+</script>
+
+</body>
+</html>
