@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\PostRepository;
 use App\Entities\Post;
 use App\Validators\PostValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
+use Prettus\Repository\Traits\CacheableRepository;
 
 /**
  * Class PostRepositoryEloquent.
@@ -15,6 +15,8 @@ use App\Validators\PostValidator;
  */
 class PostRepositoryEloquent extends BaseRepository implements PostRepository
 {
+    use CacheableRepository;
+
     /**
      * Specify Model class name
      *
@@ -26,10 +28,10 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
     }
 
     /**
-    * Specify Validator class name
-    *
-    * @return mixed
-    */
+     * Specify Validator class name
+     *
+     * @return mixed
+     */
     public function validator()
     {
 
@@ -44,5 +46,5 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\LinkRepository;
 use App\Entities\Link;
 use App\Validators\LinkValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
+use Prettus\Repository\Traits\CacheableRepository;
 
 /**
  * Class LinkRepositoryEloquent.
@@ -15,6 +15,8 @@ use App\Validators\LinkValidator;
  */
 class LinkRepositoryEloquent extends BaseRepository implements LinkRepository
 {
+    use CacheableRepository;
+
     /**
      * Specify Model class name
      *
@@ -26,10 +28,10 @@ class LinkRepositoryEloquent extends BaseRepository implements LinkRepository
     }
 
     /**
-    * Specify Validator class name
-    *
-    * @return mixed
-    */
+     * Specify Validator class name
+     *
+     * @return mixed
+     */
     public function validator()
     {
 
@@ -44,5 +46,5 @@ class LinkRepositoryEloquent extends BaseRepository implements LinkRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

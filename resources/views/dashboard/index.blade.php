@@ -3,169 +3,82 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <header class="header bg-ui-general">
-        <div class="header-info">
-            <h1 class="header-title">
-                <strong>Icon indicator</strong> sidebar
-                <small>Sidebar is the main navigation for most of admin templates and web apps.</small>
-            </h1>
-        </div>
 
-        <div class="header-action">
-            <nav class="nav">
-                <a class="nav-link active" href="sidebar.html">Variations</a>
-                <a class="nav-link" href="sidebar-doc.html">Documentation</a>
-            </nav>
+    <header class="header">
+        <div class="header-bar">
+            <h2 class="header-title"><strong>Dashboard</strong></h2>
         </div>
-    </header><!--/.header -->
+    </header>
 
     <div class="main-content">
-        <div class="card">
-            <h4 class="card-title"><strong>Layout</strong></h4>
-            <div class="card-body">
-                <div class="row gap-y text-center">
-                    <div class="col-md-6 col-xl-4">
-                        <p class="fs-15">Default</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-default.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-default.png" alt="Sidebar default page">
-                        </a>
+        <div class="row">
+            <div class="col-6 col-lg-3">
+                <div class="card shadow-1">
+                    <div class="card-body">
+                        <div class="flexbox">
+                            <h5>Articles</h5>
+                            <div class="dropdown">
+                                <span class="dropdown-toggle no-caret" data-toggle="dropdown">
+                                    <i class="ti-more-alt rotate-90"></i>
+                                </span>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="#"><i class="ion-android-list"></i> Details</a>
+                                    <a class="dropdown-item" href="#"><i class="ion-android-add"></i> Add new</a>
+                                    <a class="dropdown-item" href="#"><i class="ion-android-refresh"></i> Refresh</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center my-2">
+                            <div class="fs-60 fw-400 text-info">34</div>
+                            <span class="fw-400 text-muted">Total</span>
+                        </div>
                     </div>
 
-                    <div class="col-md-6 col-xl-4">
-                        <hr class="d-md-none">
-                        <p class="fs-15">Icons boxed</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-icons-boxed.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-icons-boxed.png"
-                                 alt="Sidebar icons boxed page">
-                        </a>
+                    <div class="card-body bg-lighter fw-400 py-12">
+                        <span class="text-muted mr-1">Draft:</span>
+                        <span class="text-dark">16</span>
                     </div>
 
-                    <div class="col-md-6 col-xl-4">
-                        <hr class="d-xl-none">
-                        <p class="fs-15">Icons right</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-icons-right.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-icons-right.png"
-                                 alt="Sidebar icons right page">
-                        </a>
-                    </div>
-
-                    <div class="col-md-6 col-xl-4">
-                        <hr>
-                        <p class="fs-15">Icons right boxed</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-icons-right-boxed.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-icons-right-boxed.png"
-                                 alt="Sidebar icons boxed right page">
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-6 col-xl-4">
-                        <hr>
-                        <p class="fs-15">Sidebar folded 1</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-folded-1.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-folded-1.png" alt="Sidebar folded page 1">
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-6 col-xl-4">
-                        <hr>
-                        <p class="fs-15">Sidebar folded 2</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-folded-2.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-folded-2.png" alt="Sidebar folded page 2">
-                        </a>
+                    <div class="progress mb-0">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 25%; height: 3px;"
+                             aria-valuenow="16" aria-valuemin="0" aria-valuemax="34"></div>
                     </div>
                 </div>
             </div>
-        </div>
 
+            <div class="col-6 col-lg-3">
+                <div class="card shadow-1">
+                    <div class="card-body">
+                        <div class="flexbox">
+                            <h5>Categories</h5>
+                            <div class="dropdown">
+                                <span class="dropdown-toggle no-caret" data-toggle="dropdown">
+                                    <i class="ti-more-alt rotate-90"></i>
+                                </span>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="#"><i class="ion-android-list"></i> Details</a>
+                                    <a class="dropdown-item" href="#"><i class="ion-android-add"></i> Add new</a>
+                                    <a class="dropdown-item" href="#"><i class="ion-android-refresh"></i>
+                                        Refresh</a>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="card">
-            <h4 class="card-title"><strong>Menu</strong> types</h4>
-
-            <div class="card-body">
-                <div class="row gap-y text-center">
-                    <div class="col-md-6 col-xl-4">
-                        <p class="fs-15">Iconic</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-iconic.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-iconic.png" alt="Sidebar iconic page">
-                        </a>
+                        <div class="text-center my-2">
+                            <div class="fs-60 fw-400 text-danger">{{ \App\Entities\Category::all()->count() }}</div>
+                            <span class="fw-400 text-muted">Total</span>
+                        </div>
                     </div>
 
-
-                    <div class="col-md-6 col-xl-4">
-                        <hr class="d-md-none">
-                        <p class="fs-15">Bordery</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-bordery.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-bordery.png" alt="Sidebar bordery page">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card">
-            <h4 class="card-title"><strong>Menu indicator</strong> types</h4>
-
-            <div class="card-body">
-                <p>Default menu indicator of current documetation is <code>icon</code> for menus, and <code>dot</code>
-                    for submenus. Apart from them, you are able to use characters or even empty space.</p>
-                <br>
-                <div class="row gap-y text-center">
-                    <div class="col-md-6 col-xl-4">
-                        <p class="fs-15 fw-400">Icon</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-3 shadow-4"
-                           href="sidebar-indicator-icon.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-indicator-icon.png"
-                                 alt="Sidebar indicator icon page">
-                        </a>
+                    <div class="card-body bg-lighter fw-400 py-12">
+                        <span class="text-muted mr-1">Used:</span>
+                        <span class="text-dark">9</span>
                     </div>
 
-
-                    <div class="col-md-6 col-xl-4">
-                        <hr class="d-md-none">
-                        <p class="fs-15">Character</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-indicator-char.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-indicator-char.png"
-                                 alt="Sidebar indicator character page">
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-6 col-xl-4">
-                        <hr class="d-xl-none">
-                        <p class="fs-15">Empty space</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-indicator-empty.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-indicator-empty.png"
-                                 alt="Sidebar indicator empty space page">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card">
-            <h4 class="card-title"><strong>Skins</strong></h4>
-
-            <div class="card-body">
-                <div class="row gap-y text-center">
-                    <div class="col-md-6 col-xl-4">
-                        <p class="fs-15">Light</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-skin-light.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-skin-light.png"
-                                 alt="Sidebar skin light page">
-                        </a>
-                    </div>
-
-
-                    <div class="col-md-6 col-xl-4">
-                        <hr class="d-md-none">
-                        <p class="fs-15">Dark</p>
-                        <a class="d-block b-1 border-light hover-shadow-2 p-1" href="sidebar-skin-dark.html">
-                            <img src="/dashboard-assets/img/preview/sidebar-skin-dark.png" alt="Sidebar skin dark page">
-                        </a>
+                    <div class="progress mb-0">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 65%; height: 3px;"
+                             aria-valuenow="9" aria-valuemin="0" aria-valuemax="15"></div>
                     </div>
                 </div>
             </div>

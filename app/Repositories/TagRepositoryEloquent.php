@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\TagRepository;
 use App\Entities\Tag;
 use App\Validators\TagValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
+use Prettus\Repository\Traits\CacheableRepository;
 
 /**
  * Class TagRepositoryEloquent.
@@ -15,6 +15,8 @@ use App\Validators\TagValidator;
  */
 class TagRepositoryEloquent extends BaseRepository implements TagRepository
 {
+    use CacheableRepository;
+
     /**
      * Specify Model class name
      *
@@ -26,10 +28,10 @@ class TagRepositoryEloquent extends BaseRepository implements TagRepository
     }
 
     /**
-    * Specify Validator class name
-    *
-    * @return mixed
-    */
+     * Specify Validator class name
+     *
+     * @return mixed
+     */
     public function validator()
     {
 
@@ -44,5 +46,5 @@ class TagRepositoryEloquent extends BaseRepository implements TagRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

@@ -2,11 +2,12 @@
 
 namespace App\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\CategoryRepository;
+use App\Criteria\CategoryCriteria;
 use App\Entities\Category;
 use App\Validators\CategoryValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
+use Prettus\Repository\Traits\CacheableRepository;
 
 /**
  * Class CategoryRepositoryEloquent.
@@ -15,6 +16,8 @@ use App\Validators\CategoryValidator;
  */
 class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
 {
+    use CacheableRepository;
+
     /**
      * Specify Model class name
      *
@@ -26,10 +29,10 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
     }
 
     /**
-    * Specify Validator class name
-    *
-    * @return mixed
-    */
+     * Specify Validator class name
+     *
+     * @return mixed
+     */
     public function validator()
     {
 
@@ -43,6 +46,7 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+        $this->pushCriteria(CategoryCriteria::class);
     }
-    
+
 }

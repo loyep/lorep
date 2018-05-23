@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\PermissionRepository;
 use App\Entities\Permission;
 use App\Validators\PermissionValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
+use Prettus\Repository\Traits\CacheableRepository;
 
 /**
  * Class PermissionRepositoryEloquent.
@@ -15,6 +15,8 @@ use App\Validators\PermissionValidator;
  */
 class PermissionRepositoryEloquent extends BaseRepository implements PermissionRepository
 {
+    use CacheableRepository;
+
     /**
      * Specify Model class name
      *
@@ -26,10 +28,10 @@ class PermissionRepositoryEloquent extends BaseRepository implements PermissionR
     }
 
     /**
-    * Specify Validator class name
-    *
-    * @return mixed
-    */
+     * Specify Validator class name
+     *
+     * @return mixed
+     */
     public function validator()
     {
 
@@ -44,5 +46,5 @@ class PermissionRepositoryEloquent extends BaseRepository implements PermissionR
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

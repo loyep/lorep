@@ -6,11 +6,11 @@ use Prettus\Repository\Contracts\CacheableInterface;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface LinkRepository.
+ * Interface PostRepository.
  *
  * @package namespace App\Repositories;
  */
-interface LinkRepository extends RepositoryInterface, CacheableInterface
+interface PageRepository extends RepositoryInterface, CacheableInterface
 {
     //
 }

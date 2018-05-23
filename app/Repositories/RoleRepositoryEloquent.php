@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\RoleRepository;
 use App\Entities\Role;
 use App\Validators\RoleValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
+use Prettus\Repository\Traits\CacheableRepository;
 
 /**
  * Class RoleRepositoryEloquent.
@@ -15,6 +15,8 @@ use App\Validators\RoleValidator;
  */
 class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
 {
+    use CacheableRepository;
+
     /**
      * Specify Model class name
      *
@@ -26,10 +28,10 @@ class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
     }
 
     /**
-    * Specify Validator class name
-    *
-    * @return mixed
-    */
+     * Specify Validator class name
+     *
+     * @return mixed
+     */
     public function validator()
     {
 
@@ -44,5 +46,5 @@ class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

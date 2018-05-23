@@ -1,6 +1,6 @@
 <!-- Sidebar -->
-<aside class="sidebar sidebar-expand-lg sidebar-icons-boxed">
-    <header class="sidebar-header">
+<aside class="sidebar sidebar-expand-lg sidebar-icons-boxed sidebar-dark">
+    <header class="sidebar-header" style="background-color: rgb(72, 176, 247);">
         <a class="logo-icon" href="{{ route('dashboard') }}">
             <img src="/dashboard-assets/img/logo-icon-light.png" alt="logo icon"></a>
         <span class="logo">

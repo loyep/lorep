@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\OperationLogRepository;
 use App\Entities\OperationLog;
 use App\Validators\OperationLogValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
+use Prettus\Repository\Traits\CacheableRepository;
 
 /**
  * Class OperationLogRepositoryEloquent.
@@ -15,6 +15,8 @@ use App\Validators\OperationLogValidator;
  */
 class OperationLogRepositoryEloquent extends BaseRepository implements OperationLogRepository
 {
+    use CacheableRepository;
+
     /**
      * Specify Model class name
      *
@@ -26,10 +28,10 @@ class OperationLogRepositoryEloquent extends BaseRepository implements Operation
     }
 
     /**
-    * Specify Validator class name
-    *
-    * @return mixed
-    */
+     * Specify Validator class name
+     *
+     * @return mixed
+     */
     public function validator()
     {
 
@@ -44,5 +46,5 @@ class OperationLogRepositoryEloquent extends BaseRepository implements Operation
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

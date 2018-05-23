@@ -2,18 +2,18 @@
 
 namespace App\Repositories;
 
-use App\Entities\Comment;
-use App\Validators\CommentValidator;
+use App\Entities\Post;
+use App\Validators\PostValidator;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Traits\CacheableRepository;
 
 /**
- * Class CommentRepositoryEloquent.
+ * Class PostRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class CommentRepositoryEloquent extends BaseRepository implements CommentRepository
+class PageRepositoryEloquent extends BaseRepository implements PageRepository
 {
     use CacheableRepository;
 
@@ -24,7 +24,7 @@ class CommentRepositoryEloquent extends BaseRepository implements CommentReposit
      */
     public function model()
     {
-        return Comment::class;
+        return Post::class;
     }
 
     /**
@@ -35,7 +35,7 @@ class CommentRepositoryEloquent extends BaseRepository implements CommentReposit
     public function validator()
     {
 
-        return CommentValidator::class;
+        return PostValidator::class;
     }
 
 

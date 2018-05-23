@@ -1,4 +1,4 @@
-@extends('dashboard.layouts._pass')
+@extends('dashboard.layouts.pass')
 
 @section('title', 'Reset Password')
 

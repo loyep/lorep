@@ -91,12 +91,12 @@
                         </label>
 
                         <label>
-                            <input type="radio" value="default" name="global-sidebar-color" checked>
+                            <input type="radio" value="default" name="global-sidebar-color">
                             <span style="background-color:#3f4a59"></span>
                         </label>
 
                         <label>
-                            <input type="radio" value="dark" name="global-sidebar-color">
+                            <input type="radio" value="dark" name="global-sidebar-color" checked>
                             <span style="background-color:#242a33"></span>
                         </label>
                     </div>
@@ -105,48 +105,68 @@
 
             <div class="media">
                 <div class="media-body">
-                    <p><strong>Sidebar Menu Color</strong></p>
-                    <p>Change background color of the selected menu</p>
+                    <p><strong>Sidebar Header Color</strong></p>
+                    <p>Change background color of the header.</p>
 
                     <div class="color-selector color-selector-sm mt-12">
                         <label>
-                            <input type="radio" value="primary" name="global-sidebar-menu-color" checked>
-                            <span style="background-color:#33cabb"></span>
+                            <input type="radio" value="#33cabb" name="sidebar-header-bg-color">
+                            <span class="bg-primary"></span>
                         </label>
 
                         <label>
-                            <input type="radio" value="info" name="global-sidebar-menu-color">
-                            <span style="background-color:#48b0f7"></span>
+                            <input type="radio" value="#46be8a" name="sidebar-header-bg-color">
+                            <span class="bg-success"></span>
                         </label>
 
                         <label>
-                            <input type="radio" value="warning" name="global-sidebar-menu-color">
-                            <span style="background-color:#faa64b"></span>
+                            <input type="radio" value="#48b0f7" name="sidebar-header-bg-color" checked>
+                            <span class="bg-info"></span>
                         </label>
 
                         <label>
-                            <input type="radio" value="danger" name="global-sidebar-menu-color">
-                            <span style="background-color:#f96868"></span>
+                            <input type="radio" value="#f2a654" name="sidebar-header-bg-color">
+                            <span class="bg-warning"></span>
                         </label>
 
                         <label>
-                            <input type="radio" value="purple" name="global-sidebar-menu-color">
-                            <span style="background-color:#926dde"></span>
+                            <input type="radio" value="#f96868" name="sidebar-header-bg-color">
+                            <span class="bg-danger"></span>
                         </label>
 
                         <label>
-                            <input type="radio" value="pink" name="global-sidebar-menu-color">
-                            <span style="background-color:#f96197"></span>
+                            <input type="radio" value="#ff708e" name="sidebar-header-bg-color">
+                            <span class="bg-pink"></span>
                         </label>
 
                         <label>
-                            <input type="radio" value="cyan" name="global-sidebar-menu-color">
-                            <span style="background-color:#57c7d4"></span>
+                            <input type="radio" value="#6d5eac" name="sidebar-header-bg-color">
+                            <span class="bg-purple"></span>
                         </label>
 
                         <label>
-                            <input type="radio" value="dark" name="global-sidebar-menu-color">
-                            <span style="background-color:#3f4a59"></span>
+                            <input type="radio" value="#f262d3" name="sidebar-header-bg-color">
+                            <span class="bg-brown"></span>
+                        </label>
+
+                        <label>
+                            <input type="radio" value="#3adad0" name="sidebar-header-bg-color">
+                            <span class="bg-cyan"></span>
+                        </label>
+
+                        <label>
+                            <input type="radio" value="#fdd501" name="sidebar-header-bg-color">
+                            <span class="bg-yellow"></span>
+                        </label>
+
+                        <label>
+                            <input type="radio" value="#465161" name="sidebar-header-bg-color">
+                            <span class="bg-dark"></span>
+                        </label>
+
+                        <label>
+                            <input type="radio" value="#999999" name="sidebar-header-bg-color">
+                            <span class="bg-gray"></span>
                         </label>
                     </div>
                 </div>
