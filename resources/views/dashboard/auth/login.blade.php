@@ -1,101 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Responsive admin dashboard and web application ui kit. ">
-    <meta name="keywords" content="login, signin">
+@extends('dashboard.layouts._login')
 
-    <title>Login Page 3 &mdash; TheAdmin</title>
+@section('title', 'Login')
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
+@section('content')
+    <div class="px-80 py-30">
+        <h4>Login</h4>
+        <p>
+            <small>Sign into your account</small>
+        </p>
+        <br>
+        <form class="form-type-line" method="post" action="{{ route('login') }}">
+            @csrf
+            <div class="form-group">
+                <label for="email">{{ __('E-Mail Address') }}</label>
+                <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                       id="email" name="email" value="{{ old('email') }}" required>
 
-    <!-- Styles -->
-    <link href="/dashboard-assets/css/core.min.css" rel="stylesheet">
-    <link href="/dashboard-assets/css/app.min.css" rel="stylesheet">
-    <link href="/dashboard-assets/css/style.min.css" rel="stylesheet">
-
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/dashboard-assets/img/apple-touch-icon.png">
-    <link rel="icon" href="/dashboard-assets/img/favicon.png">
-</head>
-
-<body>
-
-
-<div class="row no-gutters min-h-fullscreen bg-white">
-    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img"
-         style="background-image: url(/dashboard-assets/img/gallery/11.jpg)" data-overlay="5">
-
-        <div class="row h-100 pl-50">
-            <div class="col-md-10 col-lg-8 align-self-end">
-                <img src="/dashboard-assets/img/logo-light-lg.png" alt="...">
-                <br><br><br>
-                <h4 class="text-white">The admin is the best admin framework available online.</h4>
-                <p class="text-white">Credibly transition sticky users after backward-compatible web services.
-                    Compellingly strategize team building interfaces.</p>
-                <br><br>
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
-        <div class="px-80 py-30">
-            <h4>Login</h4>
-            <p>
-                <small>Sign into your account</small>
-            </p>
-            <br>
-
-            <form class="form-type-line">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username">
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password">
-                </div>
-
-                <div class="form-group flexbox">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" checked>
-                        <label class="custom-control-label">Remember me</label>
-                    </div>
-
-                    <a class="text-muted hover-primary fs-13" href="#">Forgot password?</a>
-                </div>
-
-                <div class="form-group">
-                    <button class="btn btn-bold btn-block btn-primary" type="submit">Login</button>
-                </div>
-            </form>
-
-            <div class="divider">Or Sign In With</div>
-            <div class="text-center">
-                <a class="btn btn-square btn-facebook" href="#"><i class="fa fa-facebook"></i></a>
-                <a class="btn btn-square btn-google" href="#"><i class="fa fa-google"></i></a>
-                <a class="btn btn-square btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback"><strong>{{ $errors->first('email') }}</strong>                     </span>
+                @endif
             </div>
 
-            <hr class="w-30px">
+            <div class="form-group">
+                <label for="password">{{ __('Password') }}</label>
+                <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                       id="password" name="password" required>
 
-            <p class="text-center text-muted fs-13 mt-20">Don't have an account? <a class="text-primary fw-500"
-                                                                                    href="#">Sign up</a></p>
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback"><strong>{{ $errors->first('password') }}</strong></span>
+                @endif
+            </div>
+
+            <div class="form-group flexbox flex-column flex-md-row">
+                <div class="custom-control custom-checkbox">
+                    <input id="remember" type="checkbox" name="remember"
+                           class="custom-control-input" {{ old('remember') ? 'checked' : '' }}>
+                    <label class="custom-control-label" for="remember">{{ __('Remember Me') }}</label>
+                </div>
+
+                <a class="text-muted hover-primary fs-13 mt-2 mt-md-0" href="{{ route('password.request') }}">Forgot
+                    password?</a>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-bold btn-block btn-primary" type="submit">{{ __('Sign In') }}</button>
+            </div>
+        </form>
+        <div class="divider">Or Sign In With</div>
+        <div class="text-center">
+            <a class="btn btn-square btn-dark" href="#"><i class="fa fa-github"></i></a>
+            <a class="btn btn-square btn-google" href="#"><i class="fa fa-google"></i></a>
         </div>
+        <hr class="w-30px">
+        <p class="text-center text-muted fs-13 mt-20">Don't have an account?
+            <a class="text-primary fw-500" href="#">Sign up</a>
+        </p>
     </div>
-</div>
-
-
-<!-- Scripts -->
-<script src="/dashboard-assets/js/core.min.js"></script>
-<script src="/dashboard-assets/js/app.min.js"></script>
-<script src="/dashboard-assets/js/script.min.js"></script>
-
-</body>
-</html>
-
+@endsection
