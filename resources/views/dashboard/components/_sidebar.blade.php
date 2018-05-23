@@ -1,35 +1,30 @@
 <!-- Sidebar -->
-<aside class="sidebar sidebar-expand-lg">
+<aside class="sidebar sidebar-expand-lg sidebar-icons-boxed">
     <header class="sidebar-header">
-        <a class="logo-icon" href="{{ route('dashboard') }}"><img src="/dashboard-assets/img/logo-icon-light.png"
-                                                                  alt="logo icon"></a>
+        <a class="logo-icon" href="{{ route('dashboard') }}">
+            <img src="/dashboard-assets/img/logo-icon-light.png" alt="logo icon"></a>
         <span class="logo">
-          <a href="{{ route('dashboard') }}"><img src="/dashboard-assets/img/logo-light.png" alt="logo"></a>
+            <a href="{{ route('dashboard') }}">{{ config('app.name') }}</a>
         </span>
         <span class="sidebar-toggle-fold"></span>
     </header>
 
     <nav class="sidebar-navigation">
         <ul class="menu">
-
             <br>
-
             <li class="menu-item">
                 <a class="menu-link" href="{{ route('dashboard') }}">
                     <span class="icon fa fa-home"></span>
                     <span class="title">控制台</span>
                 </a>
             </li>
-
             <br>
-
             <li class="menu-item">
                 <a class="menu-link" href="#">
                     <span class="icon fa fa-align-left"></span>
                     <span class="title">文章</span>
                     <span class="arrow"></span>
                 </a>
-
                 <ul class="menu-submenu">
                     <li class="menu-item">
                         <a class="menu-link" href="{{ route('admin.posts.index') }}">

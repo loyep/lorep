@@ -37,6 +37,7 @@ class OptionsController extends Controller
     {
         $this->repository = $repository;
         $this->validator = $validator;
+        $this->middleware('auth');
     }
 
     /**
@@ -198,5 +199,72 @@ class OptionsController extends Controller
         }
 
         return redirect()->back()->with('message', 'Option deleted.');
+    }
+
+    public function showGeneral()
+    {
+        $optionKeys = ['blogname', 'blogdescription', 'users_can_register', 'default_role'];
+        $options = $this->repository->findWhereIn('option_name', $optionKeys)->pluck('option_value', 'option_name');
+        return view('dashboard.options.general', compact('options'));
+    }
+
+    public function general()
+    {
+
+    }
+
+    public function showWriting()
+    {
+
+        return view('dashboard.options.writing');
+    }
+
+    public function writing()
+    {
+
+    }
+
+    public function showReading()
+    {
+        return view('dashboard.options.reading');
+
+    }
+
+    public function reading()
+    {
+
+    }
+
+    public function showDiscussion()
+    {
+        return view('dashboard.options.discussion');
+
+    }
+
+    public function discussion()
+    {
+
+    }
+
+    public function showMedia()
+    {
+
+        return view('dashboard.options.media');
+    }
+
+    public function media()
+    {
+
+    }
+
+    public function showAdvance()
+    {
+
+        return view('dashboard.options.advance');
+    }
+
+    public function advance()
+    {
+
     }
 }

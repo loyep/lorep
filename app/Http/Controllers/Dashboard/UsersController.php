@@ -37,6 +37,7 @@ class UsersController extends Controller
     {
         $this->repository = $repository;
         $this->validator = $validator;
+        $this->middleware('auth');
     }
 
     /**
@@ -57,6 +58,11 @@ class UsersController extends Controller
         }
 
         return view('users.index', compact('users'));
+    }
+
+    public function profile()
+    {
+        return view('dashboard.users.profile');
     }
 
     /**

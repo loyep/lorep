@@ -82,8 +82,13 @@
                     </a>
                     <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../page-extra/user-lock-1.html"><i class="ti-lock"></i> Lock</a>
-                    <a class="dropdown-item" href="../page-extra/user-login-3.html"><i class="ti-power-off"></i> Logout</a>
+                    <a class="dropdown-item" href="{{ route('admin.users.lock') }}"><i class="ti-lock"></i> Lock</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+document.getElementById('logout-form').submit();"><i
+                                class="ti-power-off"></i> Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </li>
 

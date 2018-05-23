@@ -37,6 +37,7 @@ class CommentsController extends Controller
     {
         $this->repository = $repository;
         $this->validator = $validator;
+        $this->middleware('auth');
     }
 
     /**

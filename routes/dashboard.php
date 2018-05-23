@@ -11,7 +11,7 @@
 |
 */
 
-Route::prefix('dashboard')->group(function () {
+Route::prefix('dashboard')->namespace('Dashboard')->group(function () {
 
     Route::get('/', 'DashboardController@index')->name('dashboard');
 
@@ -33,7 +33,8 @@ Route::prefix('dashboard')->group(function () {
 
 
     /* Documentation */
-    Route::get('faq', 'HomeController@showFAQ')->name('admin.extra.faq');
+    Route::get('faq', 'DashboardController@showFAQ')->name('admin.extra.faq');
+    Route::get('docs', 'DashboardController@showDocs')->name('admin.extra.docs');
 
     /* Search */
     Route::get('search', 'PostsController@search')->name('admin.search');
@@ -63,3 +64,7 @@ Route::prefix('dashboard')->group(function () {
     /* Tag */
     Route::get('tag', 'TagsController@index')->name('admin.tags.index');
 });
+
+Route::get('dashboard/user-lock', 'Auth\LoginController@lock')->name('admin.users.lock');
+
+Route::post('dashboard/user-lock', 'Auth\LoginController@unlock');

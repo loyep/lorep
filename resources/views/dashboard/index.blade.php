@@ -1,37 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description"
-          content="Responsive admin dashboard and web application ui kit. Sidebar is the main navigation for most of admin templates and web apps.">
-    <meta name="keywords" content="sidebar, indicator, icon">
+@extends('dashboard.layouts.admin')
 
-    <title>@yield('title', 'Dashboard') | {{ config('app.name') }}</title>
+@section('title', 'Dashboard')
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="/dashboard-assets/css/core.min.css" rel="stylesheet">
-    <link href="/dashboard-assets/css/app.min.css" rel="stylesheet">
-    <link href="/dashboard-assets/css/style.min.css" rel="stylesheet">
-
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/dashboard-assets/img/apple-touch-icon.png">
-    <link rel="icon" href="/dashboard-assets/img/favicon.png">
-</head>
-
-<body>
-@include('dashboard.components._preloader')
-
-@include('dashboard.components._sidebar')
-
-@include('dashboard.components._topbar')
-
-<!-- Main container -->
-<main class="main-container">
-
+@section('content')
     <header class="header bg-ui-general">
         <div class="header-info">
             <h1 class="header-title">
@@ -48,13 +19,9 @@
         </div>
     </header><!--/.header -->
 
-
     <div class="main-content">
-
-
         <div class="card">
             <h4 class="card-title"><strong>Layout</strong></h4>
-
             <div class="card-body">
                 <div class="row gap-y text-center">
                     <div class="col-md-6 col-xl-4">
@@ -63,7 +30,6 @@
                             <img src="/dashboard-assets/img/preview/sidebar-default.png" alt="Sidebar default page">
                         </a>
                     </div>
-
 
                     <div class="col-md-6 col-xl-4">
                         <hr class="d-md-none">
@@ -74,7 +40,6 @@
                         </a>
                     </div>
 
-
                     <div class="col-md-6 col-xl-4">
                         <hr class="d-xl-none">
                         <p class="fs-15">Icons right</p>
@@ -83,7 +48,6 @@
                                  alt="Sidebar icons right page">
                         </a>
                     </div>
-
 
                     <div class="col-md-6 col-xl-4">
                         <hr>
@@ -207,11 +171,4 @@
             </div>
         </div>
     </div><!--/.main-content -->
-    @include('dashboard.components._footer')
-</main>
-<!-- END Main container -->
-
-@include('dashboard.components._quickview')
-@include('dashboard.components._script')
-</body>
-</html>
+@endsection
