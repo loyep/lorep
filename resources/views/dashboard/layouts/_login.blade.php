@@ -30,7 +30,7 @@
             <div class="col-md-10 col-lg-8 align-self-end">
                 <div class="row">
                     <div class="col-auto">
-                        <img class="animated rotate-in-lg" src="/dashboard-assets/img/favicon.png" alt="...">
+                        <img class="animated rotate-in" src="/dashboard-assets/img/favicon.png" alt="...">
                     </div>
                     <div class="col-auto">
                         <h4 class="text-white">Lorep</h4>

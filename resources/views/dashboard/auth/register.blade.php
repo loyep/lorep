@@ -55,7 +55,7 @@
             </div>
         </form>
         <hr class="w-30px">
-        <p class="text-center text-muted fs-13 mt-20">Already have an account?
+        <p class="text-center text-muted fs-13 mt-20">Already have an account ?
             <a class="text-primary fw-500" href="{{ route('login') }}">Sign in</a>
         </p>
     </div>

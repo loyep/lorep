@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Entities\Dashboard\Permission;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
+//use App\Entities\Dashboard\Permission;
 
 class HomeController extends Controller
 {
