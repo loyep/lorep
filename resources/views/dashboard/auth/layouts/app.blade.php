@@ -1,63 +1,99 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-    <meta charset="utf-8"/>
-    <title>{{ config('app.name', 'Lorep') }} - @yield('title')</title>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"/>
-    <link rel="apple-touch-icon" href="pages/ico/60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/ico/76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta content="" name="description"/>
-    <meta content="" name="author"/>
-    <link href="/assets/dashboard/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css"/>
-    <link href="/assets/dashboard/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/assets/dashboard/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-    <link href="/assets/dashboard/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css"
-          media="screen"/>
-    <link href="/assets/dashboard/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link href="/assets/dashboard/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css"
-          media="screen"/>
-    <link href="/assets/dashboard/pages/css/pages-icons.css" rel="stylesheet" type="text/css">
-    <link class="main-stylesheet" href="/assets/dashboard/pages/css/pages.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript">
-        window.onload = function () {
-            // fix for windows 8
-            if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)
-                document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="pages/css/windows.chrome.fix.css" />'
-        }
-    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive admin dashboard and web application ui kit. ">
+    <meta name="keywords" content="login, signin">
+
+    <title>Login Page 3 &mdash; TheAdmin</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="/dashboard-assets/css/core.min.css" rel="stylesheet">
+    <link href="/dashboard-assets/css/app.min.css" rel="stylesheet">
+    <link href="/dashboard-assets/css/style.min.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/dashboard-assets/img/apple-touch-icon.png">
+    <link rel="icon" href="/dashboard-assets/img/favicon.png">
 </head>
-<body class="fixed-header ">
-@yield('content')
-<!-- BEGIN VENDOR JS -->
-<script src="/assets/dashboard/plugins/pace/pace.min.js" type="text/javascript"></script>
-<script src="/assets/dashboard/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script src="/assets/dashboard/plugins/modernizr.custom.js" type="text/javascript"></script>
-<script src="/assets/dashboard/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-<script src="/assets/dashboard/plugins/tether/js/tether.min.js" type="text/javascript"></script>
-<script src="/assets/dashboard/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="/assets/dashboard/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
-<script src="/assets/dashboard/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
-<script src="/assets/dashboard/plugins/jquery-ios-list/jquery.ioslist.min.js" type="text/javascript"></script>
-<script src="/assets/dashboard/plugins/jquery-actual/jquery.actual.min.js"></script>
-<script src="/assets/dashboard/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-<script type="text/javascript" src="/assets/dashboard/plugins/select2/js/select2.full.min.js"></script>
-<script type="text/javascript" src="/assets/dashboard/plugins/classie/classie.js"></script>
-<script src="/assets/dashboard/plugins/switchery/js/switchery.min.js" type="text/javascript"></script>
-<script src="/assets/dashboard/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-<!-- END VENDOR JS -->
-<script src="/assets/dashboard/pages/js/pages.min.js"></script>
-<script>
-    $(function () {
-        $('#form-login').validate()
-    })
-</script>
+
+<body>
+
+
+<div class="row no-gutters min-h-fullscreen bg-white">
+    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(/dashboard-assets/img/gallery/11.jpg)" data-overlay="5">
+
+        <div class="row h-100 pl-50">
+            <div class="col-md-10 col-lg-8 align-self-end">
+                <img src="/dashboard-assets/img/logo-light-lg.png" alt="...">
+                <br><br><br>
+                <h4 class="text-white">The admin is the best admin framework available online.</h4>
+                <p class="text-white">Credibly transition sticky users after backward-compatible web services. Compellingly strategize team building interfaces.</p>
+                <br><br>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
+        <div class="px-80 py-30">
+            <h4>Login</h4>
+            <p><small>Sign into your account</small></p>
+            <br>
+
+            <form class="form-type-material">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username">
+                    <label for="username">Username</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password">
+                    <label for="password">Password</label>
+                </div>
+
+                <div class="form-group flexbox">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" checked>
+                        <label class="custom-control-label">Remember me</label>
+                    </div>
+
+                    <a class="text-muted hover-primary fs-13" href="#">Forgot password?</a>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-bold btn-block btn-primary" type="submit">Login</button>
+                </div>
+            </form>
+
+            <div class="divider">Or Sign In With</div>
+            <div class="text-center">
+                <a class="btn btn-square btn-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="btn btn-square btn-google" href="#"><i class="fa fa-google"></i></a>
+                <a class="btn btn-square btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
+            </div>
+
+            <hr class="w-30px">
+
+            <p class="text-center text-muted fs-13 mt-20">Don't have an account? <a class="text-primary fw-500" href="#">Sign up</a></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Scripts -->
+<script src="/dashboard-assets/js/core.min.js"></script>
+<script src="/dashboard-assets/js/app.min.js"></script>
+<script src="/dashboard-assets/js/script.min.js"></script>
+
 </body>
 </html>
+

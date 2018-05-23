@@ -1,167 +1,101 @@
 <!DOCTYPE html>
-<html class="no-js css-menubar" lang="en">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="bootstrap material admin template">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive admin dashboard and web application ui kit. ">
+    <meta name="keywords" content="login, signin">
 
-    <title>Login | {{ config('app.name') }}</title>
-
-    <link rel="apple-touch-icon" href="/assets/dashboard/assets/images/apple-touch-icon.png">
-    <link rel="shortcut icon" href="/assets/dashboard/assets/images/favicon.ico">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/assets/dashboard/global/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/dashboard/global/css/bootstrap-extend.min.css">
-    <link rel="stylesheet" href="/assets/dashboard/assets/css/site.min.css">
-
-    <!-- Plugins -->
-    <link rel="stylesheet" href="/assets/dashboard/global/vendor/animsition/animsition.css">
-    <link rel="stylesheet" href="/assets/dashboard/global/vendor/asscrollable/asScrollable.css">
-    <link rel="stylesheet" href="/assets/dashboard/global/vendor/switchery/switchery.css">
-    <link rel="stylesheet" href="/assets/dashboard/global/vendor/intro-js/introjs.css">
-    <link rel="stylesheet" href="/assets/dashboard/global/vendor/slidepanel/slidePanel.css">
-    <link rel="stylesheet" href="/assets/dashboard/global/vendor/flag-icon-css/flag-icon.css">
-    <link rel="stylesheet" href="/assets/dashboard/global/vendor/waves/waves.css">
-
-    <!-- Page -->
-    <link rel="stylesheet" href="/assets/dashboard/assets/examples/css/pages/login-v2.css">
+    <title>Login Page 3 &mdash; TheAdmin</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="/assets/dashboard/global/fonts/material-design/material-design.min.css">
-    {{--<link rel="stylesheet" href="/assets/dashboard/global/fonts/brand-icons/brand-icons.min.css">--}}
-    <link rel="stylesheet" href="/assets/dashboard/global/fonts/font-awesome/font-awesome.min.css">
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
 
-    <!--[if lt IE 9]>
-    <script src="/assets/dashboard/global/vendor/html5shiv/html5shiv.min.js"></script>
-    <![endif]-->
+    <!-- Styles -->
+    <link href="/dashboard-assets/css/core.min.css" rel="stylesheet">
+    <link href="/dashboard-assets/css/app.min.css" rel="stylesheet">
+    <link href="/dashboard-assets/css/style.min.css" rel="stylesheet">
 
-    <!--[if lt IE 10]>
-    <script src="/assets/dashboard/global/vendor/media-match/media.match.min.js"></script>
-    <script src="/assets/dashboard/global/vendor/respond/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Scripts -->
-    <script src="/assets/dashboard/global/vendor/breakpoints/breakpoints.js"></script>
-    <script>
-        Breakpoints();
-    </script>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/dashboard-assets/img/apple-touch-icon.png">
+    <link rel="icon" href="/dashboard-assets/img/favicon.png">
 </head>
-<body class="animsition page-login-v2 layout-full page-dark" style="background-image: url(/assets/dashboard/assets/examples/images/login.jpg)">
-<!-- Page -->
-<div class="page" data-animsition-in="fade-in" data-animsition-out="fade-out">
-    <div class="page-content">
-        <div class="page-brand-info">
-            <div class="brand">
-                <img class="brand-img" src="/assets/dashboard/assets/images/logo@2x.png" alt="...">
-                <h2 class="brand-text font-size-40">Lorep</h2>
+
+<body>
+
+
+<div class="row no-gutters min-h-fullscreen bg-white">
+    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img"
+         style="background-image: url(/dashboard-assets/img/gallery/11.jpg)" data-overlay="5">
+
+        <div class="row h-100 pl-50">
+            <div class="col-md-10 col-lg-8 align-self-end">
+                <img src="/dashboard-assets/img/logo-light-lg.png" alt="...">
+                <br><br><br>
+                <h4 class="text-white">The admin is the best admin framework available online.</h4>
+                <p class="text-white">Credibly transition sticky users after backward-compatible web services.
+                    Compellingly strategize team building interfaces.</p>
+                <br><br>
             </div>
-            <p class="font-size-20">Lorep</p>
-        </div>
-
-        <div class="page-login-main">
-            <div class="brand hidden-md-up">
-                <img class="brand-img" src="/assets/dashboard/assets/images/logo-colored@2x.png" alt="...">
-                <h3 class="brand-text font-size-40">Lorep</h3>
-            </div>
-            <h3 class="font-size-24">Sign In</h3>
-            <form method="post" autocomplete="off" action="{{ route('login') }}">
-                @csrf
-                <div class="form-group form-material{{ $errors->has('email') ? ' has-danger' : '' }}"
-                     data-plugin="formMaterial">
-                    <label class="form-control-label" for="email">Email</label>
-                    <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="email"
-                           name="email" value="{{ old('email', '') }}">
-                    @if ($errors->has('email'))
-                        <label for="email" class="invalid-feedback">{{ $errors->first('email') }}</label>
-                    @endif
-                </div>
-                <div class="form-group form-material{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                     data-plugin="formMaterial">
-                    <label class="form-control-label" for="password">Password</label>
-                    <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                           id="password" name="password" value="{{ old('password', '') }}">
-                    @if ($errors->has('password'))
-                        <label for="password" class="invalid-feedback">{{ $errors->first('password') }}</label>
-                    @endif
-                </div>
-                <div class="form-group clearfix">
-                    <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
-                        <input type="checkbox" id="remember" name="checkbox" {{ old('remember') ? 'checked' : '' }}>
-                        <label for="remember">Remember me</label>
-                    </div>
-                    <a class="float-right" href="{{ route('password.request') }}">Forgot password?</a>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-            </form>
-
-            <p>No account? <a href="{{ route('register') }}">Sign Up</a></p>
-
-            <footer class="page-copyright">
-                <p>Copyright © 2018 <a href="https://maxsey.com">Lorep</a>.</p>
-            </footer>
         </div>
 
     </div>
+
+
+    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
+        <div class="px-80 py-30">
+            <h4>Login</h4>
+            <p>
+                <small>Sign into your account</small>
+            </p>
+            <br>
+
+            <form class="form-type-line">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+
+                <div class="form-group flexbox">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" checked>
+                        <label class="custom-control-label">Remember me</label>
+                    </div>
+
+                    <a class="text-muted hover-primary fs-13" href="#">Forgot password?</a>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-bold btn-block btn-primary" type="submit">Login</button>
+                </div>
+            </form>
+
+            <div class="divider">Or Sign In With</div>
+            <div class="text-center">
+                <a class="btn btn-square btn-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="btn btn-square btn-google" href="#"><i class="fa fa-google"></i></a>
+                <a class="btn btn-square btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
+            </div>
+
+            <hr class="w-30px">
+
+            <p class="text-center text-muted fs-13 mt-20">Don't have an account? <a class="text-primary fw-500"
+                                                                                    href="#">Sign up</a></p>
+        </div>
+    </div>
 </div>
-<!-- End Page -->
 
-<!-- Core  -->
-<script src="/assets/dashboard/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
-<script src="/assets/dashboard/global/vendor/jquery/jquery.js"></script>
-<script src="/assets/dashboard/global/vendor/popper-js/umd/popper.min.js"></script>
-<script src="/assets/dashboard/global/vendor/bootstrap/bootstrap.js"></script>
-<script src="/assets/dashboard/global/vendor/animsition/animsition.js"></script>
-<script src="/assets/dashboard/global/vendor/mousewheel/jquery.mousewheel.js"></script>
-<script src="/assets/dashboard/global/vendor/asscrollbar/jquery-asScrollbar.js"></script>
-<script src="/assets/dashboard/global/vendor/asscrollable/jquery-asScrollable.js"></script>
-<script src="/assets/dashboard/global/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
-<script src="/assets/dashboard/global/vendor/waves/waves.js"></script>
-
-<!-- Plugins -->
-<script src="/assets/dashboard/global/vendor/switchery/switchery.js"></script>
-<script src="/assets/dashboard/global/vendor/intro-js/intro.js"></script>
-<script src="/assets/dashboard/global/vendor/screenfull/screenfull.js"></script>
-<script src="/assets/dashboard/global/vendor/slidepanel/jquery-slidePanel.js"></script>
-<script src="/assets/dashboard/global/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 
 <!-- Scripts -->
-<script src="/assets/dashboard/global/js/Component.js"></script>
-<script src="/assets/dashboard/global/js/Plugin.js"></script>
-<script src="/assets/dashboard/global/js/Base.js"></script>
-<script src="/assets/dashboard/global/js/Config.js"></script>
-
-<script src="/assets/dashboard/assets/js/Section/Menubar.js"></script>
-<script src="/assets/dashboard/assets/js/Section/GridMenu.js"></script>
-<script src="/assets/dashboard/assets/js/Section/Sidebar.js"></script>
-<script src="/assets/dashboard/assets/js/Section/PageAside.js"></script>
-<script src="/assets/dashboard/assets/js/Plugin/menu.js"></script>
-
-<script src="/assets/dashboard/global/js/config/colors.js"></script>
-<script src="/assets/dashboard/assets/js/config/tour.js"></script>
-<script>Config.set('assets', '/assets/dashboard/assets');</script>
-
-<!-- Page -->
-<script src="/assets/dashboard/assets/js/Site.js"></script>
-<script src="/assets/dashboard/global/js/Plugin/asscrollable.js"></script>
-<script src="/assets/dashboard/global/js/Plugin/slidepanel.js"></script>
-<script src="/assets/dashboard/global/js/Plugin/switchery.js"></script>
-<script src="/assets/dashboard/global/js/Plugin/jquery-placeholder.js"></script>
-<script src="/assets/dashboard/global/js/Plugin/material.js"></script>
-
-<script>
-    (function (document, window, $) {
-        'use strict';
-
-        var Site = window.Site;
-        $(document).ready(function () {
-            Site.run();
-        });
-    })(document, window, jQuery);
-</script>
+<script src="/dashboard-assets/js/core.min.js"></script>
+<script src="/dashboard-assets/js/app.min.js"></script>
+<script src="/dashboard-assets/js/script.min.js"></script>
 
 </body>
 </html>
+
