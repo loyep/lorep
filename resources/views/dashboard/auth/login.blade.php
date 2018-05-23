@@ -53,7 +53,7 @@
         </div>
         <hr class="w-30px">
         <p class="text-center text-muted fs-13 mt-20">Don't have an account?
-            <a class="text-primary fw-500" href="#">Sign up</a>
+            <a class="text-primary fw-500" href="{{ route('register') }}">Sign up</a>
         </p>
     </div>
 @endsection

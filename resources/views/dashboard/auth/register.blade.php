@@ -54,10 +54,9 @@
                 <button class="btn btn-bold btn-block btn-primary" type="submit">Register</button>
             </div>
         </form>
-
         <hr class="w-30px">
         <p class="text-center text-muted fs-13 mt-20">Already have an account?
-            <a class="text-primary fw-500"  href="{{ route('login') }}">Sign in</a>
+            <a class="text-primary fw-500" href="{{ route('login') }}">Sign in</a>
         </p>
     </div>
 @endsection
