@@ -57,7 +57,7 @@ class PostsController extends Controller
             ]);
         }
 
-        return view('posts.index', compact('posts'));
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
