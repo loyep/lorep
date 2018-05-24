@@ -35,7 +35,6 @@ class PageRepositoryEloquent extends BaseRepository implements PageRepository
     public function validator()
     {
 
-        return PostValidator::class;
     }
 
 

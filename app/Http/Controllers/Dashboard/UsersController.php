@@ -68,32 +68,23 @@ class UsersController extends Controller
     public function store(UserCreateRequest $request)
     {
         try {
-
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
-
             $user = $this->repository->create($request->all());
-
-            $response = [
-                'message' => 'User created.',
-                'data' => $user->toArray(),
-            ];
-
-            if ( $request->wantsJson() ) {
-
-                return response()->json($response);
-            }
-
-            return redirect()->back()->with('message', $response['message']);
+            $message = 'User created.';
+            return redirect()->route('admin.users.index')->with('message', $message);
         } catch ( ValidatorException $e ) {
-            if ( $request->wantsJson() ) {
-                return response()->json([
-                    'error' => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('dashboard.users.create');
     }
 
     /**
@@ -106,15 +97,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = $this->repository->find($id);
-
-        if ( request()->wantsJson() ) {
-
-            return response()->json([
-                'data' => $user,
-            ]);
-        }
-
-        return view('users.show', compact('user'));
+        return view('dashboard.users.show', compact('user'));
     }
 
     /**
@@ -127,8 +110,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = $this->repository->find($id);
-
-        return view('users.edit', compact('user'));
+        return view('dashboard.users.edit', compact('user'));
     }
 
     /**
@@ -144,32 +126,16 @@ class UsersController extends Controller
     public function update(UserUpdateRequest $request, $id)
     {
         try {
-
-            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
-
-            $user = $this->repository->update($request->all(), $id);
-
-            $response = [
-                'message' => 'User updated.',
-                'data' => $user->toArray(),
-            ];
-
-            if ( $request->wantsJson() ) {
-
-                return response()->json($response);
+            $this->validator->setId($id);
+            $input = $request->all();
+            if ( empty($input['password']) ) {
+                unset($input['password']);
             }
-
-            return redirect()->back()->with('message', $response['message']);
+            $this->validator->with($input)->passesOrFail(ValidatorInterface::RULE_UPDATE);
+            $user = $this->repository->update($input, $id);
+            $message = 'User updated.';
+            return redirect()->back()->with('message', $message);
         } catch ( ValidatorException $e ) {
-
-            if ( $request->wantsJson() ) {
-
-                return response()->json([
-                    'error' => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }

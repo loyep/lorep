@@ -35,7 +35,6 @@ class TagRepositoryEloquent extends BaseRepository implements TagRepository
     public function validator()
     {
 
-        return TagValidator::class;
     }
 
 

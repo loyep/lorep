@@ -11,58 +11,58 @@
 |
 */
 
-Route::prefix('dashboard')->namespace('Dashboard')->group(function () {
+Route::get('dashboard', 'Dashboard\DashboardController@index')->name('dashboard');
 
-    Route::get('/', 'DashboardController@index')->name('dashboard');
+Route::prefix('dashboard')->namespace('Dashboard')->name('admin.')->group(function () {
 
     /* Menu */
-    Route::get('menus', 'MenusController@index')->name('menus');
+    Route::resource('menus', 'MenusController');
 
     /* Post */
-    Route::get('posts', 'PostsController@index')->name('admin.posts.index');
+    Route::resource('posts', 'PostsController');
 
     /* Page */
 
     /* User */
-    Route::get('users', 'UsersController@index')->name('admin.users.index');
+    Route::resource('users', 'UsersController');
 
-    Route::get('profile', 'UsersController@profile')->name('admin.users.profile');
+    Route::get('profile', 'UsersController@profile')->name('users.profile');
 
     /* Comment */
-    Route::get('comments', 'CommentsController@index')->name('admin.comments.index');
+    Route::resource('comments', 'CommentsController');
 
 
     /* Documentation */
-    Route::get('faq', 'DashboardController@showFAQ')->name('admin.extra.faq');
-    Route::get('docs', 'DashboardController@showDocs')->name('admin.extra.docs');
+    Route::get('faq', 'DashboardController@showFAQ')->name('extra.faq');
+    Route::get('docs', 'DashboardController@showDocs')->name('extra.docs');
 
     /* Search */
-    Route::get('search', 'PostsController@search')->name('admin.search');
+    Route::get('search', 'PostsController@search')->name('search');
 
     /* Option */
-    Route::get('options-general', 'OptionsController@showGeneral')->name('admin.options.general');
+    Route::get('options-general', 'OptionsController@showGeneral')->name('options.general');
     Route::post('options-general', 'OptionsController@general');
 
-    Route::get('options-writing', 'OptionsController@showWriting')->name('admin.options.writing');
+    Route::get('options-writing', 'OptionsController@showWriting')->name('options.writing');
     Route::post('options-writing', 'OptionsController@writing');
 
-    Route::get('options-reading', 'OptionsController@showReading')->name('admin.options.reading');
+    Route::get('options-reading', 'OptionsController@showReading')->name('options.reading');
     Route::post('options-reading', 'OptionsController@reading');
 
-    Route::get('options-discussion', 'OptionsController@showDiscussion')->name('admin.options.discussion');
+    Route::get('options-discussion', 'OptionsController@showDiscussion')->name('options.discussion');
     Route::post('options-discussion', 'OptionsController@discussion');
 
-    Route::get('options-media', 'OptionsController@showMedia')->name('admin.options.media');
+    Route::get('options-media', 'OptionsController@showMedia')->name('options.media');
     Route::post('options-media', 'OptionsController@media');
 
-    Route::get('options-advance', 'OptionsController@showAdvance')->name('admin.options.advance');
+    Route::get('options-advance', 'OptionsController@showAdvance')->name('options.advance');
     Route::post('options-advance', 'OptionsController@advance');
 
     /* Category */
-    Route::get('category', 'CategoriesController@index')->name('admin.categories.index');
+    Route::resource('categories', 'CategoriesController');
 
     /* Tag */
-    Route::get('tag', 'TagsController@index')->name('admin.tags.index');
+    Route::resource('tags', 'TagsController');
 });
 
 Route::get('dashboard/user-lock', 'Auth\LoginController@lock')->name('admin.users.lock');

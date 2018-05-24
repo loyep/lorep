@@ -23,9 +23,7 @@
 
 <body>
 
-
 <div class="row no-margin h-fullscreen" style="padding-top: 10%">
-
     <div class="col-12">
         <div class="card card-transparent mx-auto text-center">
             <h1 class="text-secondary lh-1" style="font-size: 200px">404</h1>

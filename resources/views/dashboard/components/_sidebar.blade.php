@@ -145,7 +145,7 @@
                     </li>
 
                     <li class="menu-item">
-                        <a class="menu-link" href="#">
+                        <a class="menu-link" href="{{ route('admin.users.create') }}">
                             <span class="dot"></span>
                             <span class="title">添加用户</span>
                         </a>

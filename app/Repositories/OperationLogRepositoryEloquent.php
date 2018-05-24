@@ -35,7 +35,6 @@ class OperationLogRepositoryEloquent extends BaseRepository implements Operation
     public function validator()
     {
 
-        return OperationLogValidator::class;
     }
 
 

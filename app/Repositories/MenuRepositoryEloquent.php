@@ -35,7 +35,6 @@ class MenuRepositoryEloquent extends BaseRepository implements MenuRepository
     public function validator()
     {
 
-        return MenuValidator::class;
     }
 
 

@@ -35,7 +35,6 @@ class LinkRepositoryEloquent extends BaseRepository implements LinkRepository
     public function validator()
     {
 
-        return LinkValidator::class;
     }
 
 

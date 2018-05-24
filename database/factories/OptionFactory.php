@@ -17,7 +17,7 @@ use App\Entities\Option;
 $factory->define(Option::class, function (Faker $faker) {
 
     return [
-        'option_name' => $faker->unique()->word,
-        'option_value' => $faker->text,
+        'key' => $faker->unique()->word,
+        'value' => $faker->text,
     ];
 });

@@ -35,7 +35,6 @@ class CommentRepositoryEloquent extends BaseRepository implements CommentReposit
     public function validator()
     {
 
-        return CommentValidator::class;
     }
 
 

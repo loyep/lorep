@@ -35,7 +35,6 @@ class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
     public function validator()
     {
 
-        return RoleValidator::class;
     }
 
 

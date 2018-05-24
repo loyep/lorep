@@ -35,7 +35,6 @@ class PermissionRepositoryEloquent extends BaseRepository implements PermissionR
     public function validator()
     {
 
-        return PermissionValidator::class;
     }
 
 

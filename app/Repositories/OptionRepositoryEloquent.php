@@ -35,7 +35,6 @@ class OptionRepositoryEloquent extends BaseRepository implements OptionRepositor
     public function validator()
     {
 
-        return OptionValidator::class;
     }
 
 
