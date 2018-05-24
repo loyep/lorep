@@ -18,13 +18,15 @@ class CreateOperationLogsTable extends Migration
     {
         Schema::create('operation_logs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
             $table->string('path');
             $table->string('method', 10);
             $table->string('ip', 15);
             $table->text('input');
             $table->index('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

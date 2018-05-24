@@ -17,11 +17,14 @@ class CreateTermPostTables extends Migration
     public function up()
     {
         Schema::create('term_posts', function (Blueprint $table) {
-            $table->integer('post_id');
-            $table->integer('term_id')->default(0);
+            $table->unsignedInteger('post_id');
+            $table->unsignedInteger('term_id')->default(0);
             $table->integer('term_order')->default(0);
             $table->timestamps();
             $table->primary(['post_id', 'term_id']);
+
+            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('term_id')->references('id')->on('terms');
         });
     }
 

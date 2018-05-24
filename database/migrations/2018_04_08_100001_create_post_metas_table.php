@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class CreateCommentMetasTable.
+ * Class CreatePostMetasTable.
  */
-class CreateCommentMetasTable extends Migration
+class CreatePostMetasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,13 +16,15 @@ class CreateCommentMetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('comment_metas', function (Blueprint $table) {
+        Schema::create('post_metas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('comment_id');
+            $table->unsignedInteger('post_id');
             $table->string('meta_key', 255)->comment('关键字');
             $table->text('meta_value')->nullable()->default('')->comment('值');
-            $table->unique(['comment_id', 'meta_key']);
+            $table->unique(['post_id', 'meta_key']);
             $table->timestamps();
+
+            $table->foreign('post_id')->references('id')->on('terms');
         });
     }
 
@@ -33,6 +35,6 @@ class CreateCommentMetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comment_metas');
+        Schema::dropIfExists('post_metas');
     }
 }

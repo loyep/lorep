@@ -17,10 +17,13 @@ class CreateUserPermissionsTable extends Migration
     public function up()
     {
         Schema::create('user_permissions', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->integer('permission_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('permission_id');
             $table->index(['user_id', 'permission_id']);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('permission_id')->references('id')->on('permissions');
         });
     }
 

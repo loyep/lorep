@@ -18,8 +18,12 @@ class CreateOptionsTable extends Migration
     {
         Schema::create('options', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('option_name', 191)->unique()->default('');
-            $table->text('option_value');
+            $table->string('key', 191)->unique();
+            $table->text('value');
+            $table->integer('order')->default(1);
+            $table->string('display_name')->nullable();
+            $table->text('details')->nullable();
+            $table->string('group')->nullable();
             $table->timestamps();
         });
     }

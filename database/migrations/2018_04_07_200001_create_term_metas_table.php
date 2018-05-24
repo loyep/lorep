@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class CreateUserMetasTable.
+ * Class CreateTermMetasTable.
  */
-class CreateUserMetasTable extends Migration
+class CreateTermMetasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,13 +16,15 @@ class CreateUserMetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_metas', function (Blueprint $table) {
+        Schema::create('term_metas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->unsignedInteger('term_id');
             $table->string('meta_key', 255)->comment('关键字');
             $table->text('meta_value')->nullable()->default('')->comment('值');
-            $table->unique(['user_id', 'meta_key']);
+            $table->unique(['term_id', 'meta_key']);
             $table->timestamps();
+
+            $table->foreign('term_id')->references('id')->on('terms');
         });
     }
 
@@ -33,6 +35,6 @@ class CreateUserMetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_metas');
+        Schema::dropIfExists('term_metas');
     }
 }

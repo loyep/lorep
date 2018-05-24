@@ -20,13 +20,15 @@ class CreateMenusTable extends Migration
             $table->increments('id');
             $table->integer('parent_id')->default(0);
             $table->integer('order')->default(0);
-            $table->string('title', 50);
+            $table->string('title');
             $table->string('icon', 50);
-            $table->string('uri', 50)->nullable();
+            $table->string('target')->default('_self');
+            $table->string('route')->nullable();
+            $table->string('url')->nullable();
+            $table->text('parameters')->nullable();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

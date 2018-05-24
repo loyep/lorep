@@ -18,8 +18,8 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id')->comment('评论id');
-            $table->integer('post_id')->default(0)->comment('文章id');
-            $table->integer('user_id')->default(0)->comment('评论用户id');
+            $table->unsignedInteger('post_id')->default(0)->comment('文章id');
+            $table->unsignedInteger('user_id')->default(0)->comment('评论用户id');
             $table->text('author')->default('')->comment('评论者名字');
             $table->string('email', 100)->default('')->comment('评论者邮箱');
             $table->string('url', 200)->default('')->comment('评论者网址');
@@ -31,6 +31,8 @@ class CreateCommentsTable extends Migration
             $table->integer('parent')->default(0)->comment('父评论id');
             $table->timestamps();
             $table->timestamp('created_gmt')->nullable()->comment('评论时间 (GMT+0)时间');
+
+            $table->foreign('post_id')->references('id')->on('posts');
         });
     }
 
