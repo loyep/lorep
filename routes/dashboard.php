@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('dashboard', 'Dashboard\DashboardController@index')->name('dashboard');
+$dashboard_prefix = config('lorep.route.prefix');
 
-Route::prefix('dashboard')->namespace('Dashboard')->name('admin.')->group(function () {
+Route::get($dashboard_prefix, 'Dashboard\DashboardController@index')->name('dashboard');
+
+Route::prefix($dashboard_prefix)->namespace('Dashboard')->name('admin.')->group(function () {
 
     /* Menu */
     Route::resource('menus', 'MenusController');
@@ -65,6 +67,6 @@ Route::prefix('dashboard')->namespace('Dashboard')->name('admin.')->group(functi
     Route::resource('tags', 'TagsController');
 });
 
-Route::get('dashboard/user-lock', 'Auth\LoginController@lock')->name('admin.users.lock');
+Route::get($dashboard_prefix . '/user-lock', 'Auth\LoginController@lock')->name('admin.users.lock');
 
-Route::post('dashboard/user-lock', 'Auth\LoginController@unlock');
+Route::post($dashboard_prefix . '/user-lock', 'Auth\LoginController@unlock');

@@ -22,6 +22,8 @@ class TagCriteria extends BaseCriteria implements CriteriaInterface
      */
     public function apply($model, RepositoryInterface $repository)
     {
+        $model = parent::apply($model, $repository);
+        $model = $model->where('type', '=', 'tag');
         return $model;
     }
 }

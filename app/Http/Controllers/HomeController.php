@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-//use App\Entities\Dashboard\Permission;
-
 class HomeController extends Controller
 {
     /**

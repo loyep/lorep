@@ -73,14 +73,8 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="{{ route('admin.users.profile') }}"><i class="ti-user"></i>
                         Profile</a>
-                    <a class="dropdown-item" href="../page-app/mailbox.html">
-                        <div class="flexbox">
-                            <i class="ti-email"></i>
-                            <span class="flex-grow">Inbox</span>
-                            <span class="badge badge-pill badge-info">5</span>
-                        </div>
-                    </a>
-                    <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
+                    <a class="dropdown-item" href="{{ route('admin.users.edit', Auth::user()->id) }}"><i
+                                class="ti-settings"></i> Settings</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('admin.users.lock') }}"><i class="ti-lock"></i> Lock</a>
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
