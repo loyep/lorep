@@ -47,7 +47,7 @@
                                     <td><a href="{{ route('admin.users.edit', [$user->id]) }}">{{ $user->name }}</a></td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at }}</td>
-                                    <td><img src="{{ $user->avatar }}"/></td>
+                                    <td><img class="avatar" src="{{ $user->avatar }}"/></td>
                                     <td>{{ $user->url }}</td>
                                 </tr>
                             @endforeach

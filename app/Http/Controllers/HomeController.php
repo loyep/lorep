@@ -23,4 +23,9 @@ class HomeController extends Controller
     {
         return view('app.index');
     }
+
+    public function comingSoon()
+    {
+        return view('app.pages.coming-soon');
+    }
 }
