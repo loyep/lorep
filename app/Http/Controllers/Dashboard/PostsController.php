@@ -47,17 +47,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $posts = $this->repository->all();
-
-        if ( request()->wantsJson() ) {
-
-            return response()->json([
-                'data' => $posts,
-            ]);
-        }
-
-        return view('admin.posts.index', compact('posts'));
+        $posts = $this->repository->paginate(20);
+//        dd($posts);
+        return view('dashboard.posts.index', compact('posts'));
     }
 
     /**

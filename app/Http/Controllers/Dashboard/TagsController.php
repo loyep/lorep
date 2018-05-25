@@ -47,17 +47,8 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $tags = $this->repository->all();
-
-        if ( request()->wantsJson() ) {
-
-            return response()->json([
-                'data' => $tags,
-            ]);
-        }
-
-        return view('tags.index', compact('tags'));
+        $tags = $this->repository->paginate(20);
+        return view('dashboard.tags.index', compact('tags'));
     }
 
     /**

@@ -26,3 +26,10 @@ if ( !function_exists('gravatar') ) {
         return $url . ($query ? '?' . $query : '');
     }
 }
+
+if ( !function_exists('get_options') ) {
+    function get_options($keys)
+    {
+
+    }
+}

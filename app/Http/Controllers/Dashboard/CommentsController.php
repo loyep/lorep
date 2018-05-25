@@ -47,17 +47,8 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $comments = $this->repository->all();
-
-        if ( request()->wantsJson() ) {
-
-            return response()->json([
-                'data' => $comments,
-            ]);
-        }
-
-        return view('comments.index', compact('comments'));
+        $comments = $this->repository->paginate(20);
+        return view('dashboard.comments.index', compact('comments'));
     }
 
     /**

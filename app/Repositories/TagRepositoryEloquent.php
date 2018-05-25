@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Criteria\TagCriteria;
 use App\Entities\Tag;
 use App\Validators\TagValidator;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -44,6 +45,7 @@ class TagRepositoryEloquent extends BaseRepository implements TagRepository
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+        $this->pushCriteria(app(TagCriteria::class));
     }
 
 }
