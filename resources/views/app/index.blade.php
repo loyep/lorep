@@ -1,1 +1,3 @@
-@extends('app.pages.coming-soon')
+{{--@extends('app.pages.coming-soon')--}}
+
+2
