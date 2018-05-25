@@ -18,7 +18,7 @@ class CheckForMaintenanceMode
     {
         if ( app()->isDownForMaintenance() ) {
             if ( !$request->is('dashboard*') && !$request->is('coming-soon') ) {
-                return Redirect::route('coming-soon');
+                return response()->view('app.pages.coming-soon');
             }
         }
         return $next($request);

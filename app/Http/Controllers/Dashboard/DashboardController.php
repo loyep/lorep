@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Artisan;
 
 class DashboardController extends Controller
 {
@@ -28,11 +29,20 @@ class DashboardController extends Controller
 
     public function showFaq()
     {
-        
+
     }
 
     public function showDocs()
     {
 
+    }
+
+    public function maintenance()
+    {
+        if ( app()->isDownForMaintenance() ) {
+            Artisan::call('up');
+        } else {
+            Artisan::call('down');
+        }
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Validation\ValidationException;
@@ -100,14 +101,17 @@ class LoginController extends Controller
 
         $attempts = array_merge($this->credentials($request), array('email' => $user->email));
 
-        if ( $this->guard()->attempt($attempts) ) {
-            return $this->sendLoginResponse($request);
+        if ( !$this->guard()->attempt($attempts) ) {
+            $this->incrementLoginAttempts($request);
+            throw ValidationException::withMessages([
+                'password' => [trans('auth.failed')],
+            ]);
         }
 
-        $this->incrementLoginAttempts($request);
-        throw ValidationException::withMessages([
-            'password' => [trans('auth.failed')],
-        ]);
+        $request->session()->regenerate();
+        $this->clearLoginAttempts($request);
+        return redirect()->intended($this->redirectPath());
+
     }
 
     /**
